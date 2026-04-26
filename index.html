@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maafin aku ya? 🥺</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="hearts-container"></div>
+
+    <div class="main-card">
+        <div id="scene-0" class="scene active">
+            <h1>eh… bentar ya, jangan langsung ditutup 😔</h1>
+            <button onclick="nextScene('scene-0', 'scene-1')">lanjut</button>
+        </div>
+
+        <div id="scene-1" class="scene">
+            <h1>kamu masih marah ya?</h1>
+            <div class="btn-group">
+                <button onclick="nextScene('scene-1', 'scene-2')">iya 😡</button>
+                <button onclick="nextScene('scene-1', 'scene-2')">engga 😒</button>
+            </div>
+        </div>
+
+        <div id="scene-2" class="scene">
+            <h2 id="respon-marah">yah… aku tau kamu masih marah 😭</h2>
+            
+            <div class="polaroid">
+                <img src="foto_cewe.jpg" alt="Foto Pacar">
+                <p class="caption">jangan sedih ya…</p>
+            </div>
+
+            <div id="typing-container" class="hidden">
+                <p id="typing-text"></p>
+            </div>
+
+            <button id="btn-pesan" onclick="showMessages()">lanjut baca ya...</button>
+            <button id="btn-ke-audio" class="hidden" onclick="nextScene('scene-2', 'scene-3')">terus?</button>
+        </div>
+
+        <div id="scene-3" class="scene">
+            <div class="audio-box">
+                <button id="btn-audio" onclick="playAudio()">denger ini sebentar ya… 🎵</button>
+                <audio id="myAudio" src="audio.mp3"></audio> 
+            </div>
+
+            <div class="game-box">
+                <h2>jadi... masih mau marah?</h2>
+                <div class="btn-group">
+                    <button id="btn-marah-iya" onclick="handleMarahClick()">iya</button>
+                    <button id="btn-marah-engga" onclick="nextScene('scene-3', 'scene-4')">engga</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="scene-4" class="scene">
+            <h1 id="final-text">maafin aku ya… sekali ini aja 😔</h1>
+            <button id="btn-maaf" onclick="forgiveMe()">iya aku maafin ❤️</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

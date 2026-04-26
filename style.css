@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Kalam', cursive;
+    /* GANTI bg_kucing.avif jika nama filenya berbeda */
+    background: url('kucing_bg.png') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.main-card {
+    background-color: rgba(255, 245, 245, 0.85); /* Putih transparan biar bg kucing kelihatan */
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 10px 10px 0px rgba(255, 182, 193, 0.5);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    border: 3px solid #ffb6c1;
+    position: relative;
+    z-index: 10;
+}
+
+.scene {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.scene.active {
+    display: block;
+    opacity: 1;
+}
+
+h1, h2 {
+    color: #555;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    transform: rotate(-1deg);
+}
+
+button {
+    background-color: #ff9aa2;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-family: 'Kalam', cursive;
+    font-size: 1.1rem;
+    border-radius: 15px 5px 15px 5px;
+    cursor: pointer;
+    margin: 10px 5px;
+    box-shadow: 3px 3px 0px #d65a6f;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+/* Bingkai Polaroid */
+.polaroid {
+    background: white;
+    padding: 10px 10px 25px 10px;
+    border: 1px solid #ddd;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+    transform: rotate(3deg);
+    margin: 20px auto;
+    width: 180px;
+}
+
+.polaroid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.caption {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+#typing-container {
+    margin: 15px 0;
+    min-height: 60px;
+    color: #e91e63;
+    font-weight: bold;
+}
+
+.hidden { display: none; }
+
+/* Animasi Hati */
+#hearts-container {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    bottom: -10%;
+    font-size: 1.5rem;
+    animation: floatUp 3s linear forwards;
+}
+
+@keyframes floatUp {
+    to { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+}
+
+/* Supaya bagus di HP */
+@media screen and (max-width: 480px) {
+    .main-card { padding: 20px; }
+    h1 { font-size: 1.3rem; }
+    .polaroid { width: 150px; }
+}
